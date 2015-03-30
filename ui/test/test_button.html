@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta charset="utf-8" />
+		<title>Title</title>
+		
+		<script src="../../core/ejs.core.js"></script>
+		<script src="../../core/ejs.promise.js"></script>
+		<script src="../js/eui.core.js"></script>
+		<script src="../js/eui.button.js"></script>
+		<link href="../css/eui.button.css" rel="stylesheet" />
+		
+		<style>
+			body{
+				padding:0;
+				margin:0;
+			}
+			
+		
+		.green{
+			background:green;
+		}
+		.blue{
+			background:blue;
+		}
+		
+		</style>
+		
+	</head>
+
+	<body>
+		
+		<div>
+			Text:
+			<input type="text" id="buttonText" onkeyup="valueChange('text',this.value)"/>
+			<br/>
+			Icon:
+			<select id="icon" onchange="valueChange('icon',this.value)">
+				<option value=false>NO</option>
+				<option value="green">green</option>
+				<option value="blue">blue</option>
+			</select>
+			<br/>
+			IconAlign:
+			<select id="iconAlign" onchange="valueChange('iconalign',this.value)">
+				<option value="left">left</option>
+				<option value="right">right</option>
+			</select>
+			<br/>
+			Theme:
+			<select id="theme" onchange="valueChange('theme',this.value)">
+				<option value="defaultCss">Default</option>
+				<option value="blackArrowLeft">Black Arrow Left</option>
+				<option value="blackArrowRight">Black Arrow Right</option>
+			</select>
+			<br/>
+			Inline:
+			<select id="inline" onchange="valueChange('inline',this.value)">
+				<option value=true>YES</option>
+				<option value=false>NO</option>
+			</select>
+			<br/>
+			event:
+			<select id="event" onchange="valueChange('event',this.value)">
+				<option value="">None</option>
+				<option value="click">Click</option>
+				<option value="mousedown">Mouse Down</option>
+				<option value="mouseup">Mouse Up</option>
+			</select>
+		</div>
+		<br/>
+		<br/>
+		
+		<script>
+			var Button=require("EJS.UI.Button");
+			var button=new Button();
+			document.body.appendChild(button.element);
+			
+			var buttonText=document.getElementById("buttonText");
+			var icon=document.getElementById("icon");
+			var iconAlign=document.getElementById("iconAlign");
+			var theme=document.getElementById("theme");
+			var inline=document.getElementById("inline");
+			
+			function init(){
+				buttonText.value=button.text;
+				icon.value=button.icon;
+				iconAlign.value=button.iconAlign;
+				theme.value=button.theme;
+				inline.value=button.inline;
+			}
+			init();
+			
+			function valueChange(w,o){
+				switch(w){
+					case "text":
+						button.text=o;
+					break;
+					case "icon":
+						button.icon=o;
+					break;
+					case "iconalign":
+						button.iconAlign=o;
+					break;
+					case "theme":
+						button.theme=o;
+					break;
+					case "inline":
+						button.inline=o;
+					break;
+					case "event":
+						if(o=="click"){
+							button.doClick=function(e){alert("click")}
+							button.doStart=null;
+							button.doEnd=null;
+						}else if(o=="mousedown"){
+							button.doClick=null;
+							button.doStart=function(e){alert("mouse down")};
+							button.doEnd=null;
+						}else{
+							button.doClick=null;
+							button.doStart=null;
+							button.doEnd=function(e){alert("mouse up")}
+						}
+					break;
+				}
+			}
+		</script>
+	</body>
+</html>
+
+	

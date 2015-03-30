@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>EJS UI Demo Index</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="../core/ejs.core.js"></script>
+		<script src="../core/ejs.promise.js"></script>
+		<script src="../ui/js/eui.core.js"></script>
+		<script src="../ui/js/eui.group.js"></script>
+		<script src="../ui/js/eui.button.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="css/default.css"/>
+		<link rel="stylesheet" type="text/css" href="../ui/css/eui.group.css"/>
+		<link rel="stylesheet" type="text/css" href="../ui/css/eui.button.css"/>
+		
+		<style>
+			body{
+				-webkit-overflow-scrolling: touch;
+			}
+			.green{
+				background:green;
+			}
+			.blue{
+				background:blue;
+			}
+		</style>
+		
+		
+		<script>
+			(function(){
+				var menu=null;
+			
+				var loadTimer=setInterval(function(){
+					var docState=document.readyState;
+					if(docState=="load" || docState=="complete"){
+						document.addEventListener("touchmove",function(e){e.preventDefault();},false);
+						clearInterval(loadTimer);
+						ready();
+					}
+				},1);
+				
+				function ready(){
+					loadMenu();
+				}
+				
+				/*  load menu */
+				var loadMenu=function(){
+					var menuhost=document.getElementById("menu");
+					var Group=require("EJS.UI.Group");
+					var gropOptions=[
+						{
+							"header":{title:"UI"},
+							"items":[
+								{"itemtitle":"Toggle Switch","btnId":"switch"},
+								{"itemtitle":"Button","btnId":"button",},
+								{"itemtitle":"Scroll View","btnId":"scroll"},
+								{"itemtitle":"Group","btnId":"group"},
+								{"itemtitle":"Panel","btnId":"panel"},
+								{"itemtitle":"Slider Menu","btnId":"sliderMenu"},
+								{"itemtitle":"Slider","btnId":"slider"},
+								{"itemtitle":"Progress","btnId":"progress"},
+								{"itemtitle":"Menu Bar","btnId":"menubar"}
+							]
+						},
+						{
+							"header":{title:"App Plugins"},
+							"items":[
+								{"itemtitle":"Camera","btnId":"button"}
+							]
+						},
+					];
+					
+					var options={
+						dataSource:gropOptions,
+						//groupHeaderTemplateId:"headerTemplateId",
+						//itemTemplateId:"ItemTemplateId",
+					}
+					/* Link */
+					var itemClick=function(e){
+					
+						var btnId=e.itemData.btnId;
+						switch(btnId){
+							case "button":
+								window.location="ui/doc-button.html";
+							break;
+							case "switch":
+								window.location="ui/doc-toggleswitch.html";
+							break;
+							case "scroll":
+								window.location="ui/doc-scrollview.html";
+							break;
+							case "group":
+								window.location="ui/doc-group.html";
+							break;
+							case "panel":
+								window.location="ui/doc-panel.html";
+							break;
+							case "sliderMenu":
+								window.location="ui/demo/demo.html";
+							break;
+							case "slider":
+								window.location="ui/doc-slider.html";
+							break;
+							case "progress":
+								window.location="ui/doc-progress.html";
+							break;
+							case "menubar":
+								window.location="ui/doc-menubar.html";
+							break;
+						}	
+					}
+					
+					menu=new Group(menuhost,options);
+					menu.addEvent("itemClick",itemClick);
+					menu.forceLayout();
+					
+				}
+
+			})()
+		
+		</script>
+		
+	</head>
+
+	<body>
+		<div class="ui-header">
+			<div id="headertitle" class="headertitle">EJS Demo Index</div>
+		</div>
+		
+		<div class="content">
+			<div id="menu" ></div>
+		</div>
+	</body>
+</html>
+
+	

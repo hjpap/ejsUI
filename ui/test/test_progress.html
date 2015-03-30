@@ -1,0 +1,32 @@
+﻿<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script src="../../core/ejs.core.js"></script>
+		<script src="../../core/ejs.promise.js"></script>
+		<script src="../js/eui.core.js"></script>
+		<script src="../js/eui.progress.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/eui.progress.css"/>
+		<style>
+			body{
+				margin:60px;
+				padding:0;
+			}
+			
+			
+		</style>
+	</head>
+	
+	<body>
+		<!--div class="ui-progress ui-pro-bar-bg">
+			<div class="progress ui-p-color" style="width:50%; ">
+			</div>
+		</div-->
+		
+		<script>
+			var Pro=require("EJS.UI.Progress");
+			var pro=new Pro();
+			document.body.appendChild(pro.element);
+			pro.value="29";
+		</script>
+	</body>
+</html>

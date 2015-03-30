@@ -1,0 +1,93 @@
+﻿.ui-slider{
+	-webkit-user-select:none;
+	position: relative;
+	
+	
+	border-top:1px solid #969696;
+	border-bottom:1px solid #CDCDCD;
+	border-left:1px solid #B9B9B9;
+	border-right:1px solid #B9B9B9;
+	height:8px;
+	width:100%;
+	background:-webkit-gradient(linear, left top, left bottom, from(#C4C4C4),color-stop(50%,#fff), to(#fff) );
+	-webkit-border-radius:5px;
+}
+.ui-slider .progress{
+	position:absolute;
+	top:-1px;
+	left:0;
+	border-top:1px solid #0E3E8B;
+	border-bottom:1px solid #457FCB;
+	
+	height:8px;
+
+	background:-webkit-gradient(linear, left top, left bottom, from(#2D64BE), to(#5F9DF1) );
+	-webkit-border-radius:5px;
+	
+	-moz-transition:all 0s linear;
+	-webkit-transition: all 0s linear;
+	-o-transition: all 0s linear;
+	transition: all 0s linear;
+}
+
+.ui-slider .disabled{
+	border-top:1px solid #A7A7A7;
+	border-bottom:1px solid #AFAFAF;
+	background:-webkit-gradient(linear, left top, left bottom, from(#A7A7A7), to(#DDDDDD) );
+}
+/* slider button  */
+.ui-slider .sliderBtn{
+	width:20px;
+	height:20px;
+	-webkit-border-radius:10px;
+	border:1px solid #AEAEAE;
+	background:-webkit-gradient(linear, left top, left bottom, from(#D6D6D6), to(#F7F7F7) );
+	-webkit-box-shadow: inset 0px 0px 1px 1px #fff,
+	0px 1px 1px 0px rgba(101,101,101, .38);
+	
+	position:absolute;
+	top:-7px;
+	left:0px;
+	margin-left:-10px;
+	
+	-moz-transition:all 0s linear;
+	-webkit-transition: all 0s linear;
+	-o-transition: all 0s linear;
+	transition: all 0s linear;
+}
+
+.ui-slider .sliderBtn .tip{
+	display:block;
+	position:absolute;
+	top:-50px;
+	left:-21px;
+	height:40px;
+	line-height:40px;
+	width:60px;
+	border:1px solid #2C2D2E;
+	background:-webkit-gradient(linear, left top, left bottom, from(#898989),color-stop(50%,#474747),color-stop(50%,#090909), to(#090909) );
+	-webkit-border-radius:5px;
+	-webkit-box-shadow: inset 0px 1px 1px 0px #C5C5C5,
+	0px 3px 2px 0px rgba(137,137,137, .5);
+	
+	color:#fff;
+	text-align:center;
+	font-family: 'Helvetica';
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.ui-slider .sliderBtn .tip:after{
+	content:"";
+	position:absolute;
+	top:30px;
+	left:21px;
+	
+	width:17px;
+	height:17px;
+	border-right:1px solid #2C2D2E;
+	border-bottom:1px solid #2C2D2E;
+	-webkit-transform: rotate(45deg);
+	background:-webkit-gradient(linear, left top, left bottom, from(#090909), to(#090909) );
+	-webkit-box-shadow:2px 2px 2px 0px rgba(137,137,137, .5);
+}

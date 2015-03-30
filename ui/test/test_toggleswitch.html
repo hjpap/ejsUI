@@ -1,0 +1,47 @@
+﻿<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script src="../../core/ejs.core.js"></script>
+		<script src="../../core/ejs.promise.js"></script>
+		<script src="../js/eui.core.js"></script>
+		<script src="../js/eui.toggleswitchCss.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/eui.toggleswitch.css"/>
+		<style>
+			body{
+				background:#ddd;
+			}
+			#d1{
+				width:90px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="tw" style="margin-top:50px;"></div>
+
+		
+		<!--div class="ui-slider-switch ui-switch-bg">
+			<span class="ui-slider-label ui-slider-label-a ui-btn-active" style="width: 50%; ">On</span>
+			<span class="ui-slider-label ui-slider-label-b " style="width: 50%; ">Off</span>
+			<div class="ui-slider-inneroffset">
+				<a href="#" class="ui-slider-handle ui-btn-up-a-default" style="left: 50%; "></a>
+			</div>
+		</div-->
+		<button value="Clean" onclick="document.getElementById('d3').innerHTML='';i=0">Clean</button><br/>
+		state: <div id="d3" style="margin-top:50px;"></div>
+		
+		
+		
+		<script>
+			var twHost=document.getElementById("tw");
+			var Toggle=require("EJS.UI.ToggleSwitch");
+			var toggleSwitch=new Toggle(twHost);
+			toggleSwitch.forceLayout();
+			var i=0;
+			toggleSwitch.doChange=function(e){
+				document.getElementById("d3").innerHTML+="<div>("+(++i)+") "+e.checked+"  "+this._hasTouch+"</div>";
+			}
+			toggleSwitch.checked=true;
+		</script>
+	</body>
+</html>

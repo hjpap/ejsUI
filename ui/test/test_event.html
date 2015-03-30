@@ -1,0 +1,24 @@
+﻿<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script src="../../core/ejs.core.js"></script>
+		<script src="../js/eui.core.js"></script>
+
+		<style>
+
+		</style>
+	</head>
+	
+	<body>
+		<div id="d1" style="height:400px;width:300px">aaa</div>
+		
+		<script>
+			var dom=document.getElementById("d1");
+		
+			dom.addEventListener("mousedown",function(e){
+				alert(e.clientX);
+			},true);
+		</script>
+		
+	</body>
+</html>

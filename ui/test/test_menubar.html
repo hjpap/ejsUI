@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta charset="utf-8" />
+		<title>Title</title>
+		<script src="../../core/ejs.core.js"></script>
+		<script src="../../core/ejs.promise.js"></script>
+		<script src="../js/eui.core.js"></script>
+		<script src="../js/eui.menubar.js"></script>
+		<link href="../css/eui.menubar.css" rel="stylesheet" />
+		
+		<style>
+			body{
+				padding:0;
+				margin:10px 0;
+			}
+
+			
+		</style>
+		
+	</head>
+
+	<body>
+		<!--div class="ui-menubar ui-black-menubar">
+			<div class="mbody">
+			
+				<div class="menubutton selected" id="">
+					<img src="../../images/menubar/refresh.png">
+					<div class="buttontitle">Refresh</div>
+				</div>
+				<div class="menubutton" id="">
+					<img src="../../images/menubar/information.png">
+					<div class="buttontitle">Information</div>
+				</div>
+				<div class="menubutton selected" id="">
+					<img src="../../images/menubar/fifter.png">
+					<div class="buttontitle">Filter</div>
+				</div>
+				<div class="menubutton" id="">
+					<img src="../../images/menubar/jump_to.png">
+					<div class="buttontitle">Jump to</div>
+				</div>
+				<div class="menubutton" id="">
+					<img src="../../images/menubar/contact.png">
+					<div class="buttontitle">Contact</div>
+				</div>
+				<div class="menubutton " id="">
+					<img src="../../images/menubar/add.png">
+					<div class="buttontitle">Add an activity</div>
+				</div>
+				<div class="menubutton selected" id="">
+					<img src="../../images/menubar/settings.png">
+					<div class="buttontitle">Settings</div>
+				</div>
+				
+			</div>
+		</div-->
+		
+		
+		<script>
+			var MenuBar=require("EJS.UI.MenuBar");
+			var infoBtn={
+				
+				"icon":"../../images/menubar/information.png",
+				"selectIcon":"../../images/menubar/information_select.png",
+				"text":"Information",
+				"flyoutId":"infoFlyout",
+				"selectedEvent":function(){
+					alert("infor select");
+				},
+				"unSelectedEvent":function(){
+					alert("info unselect");
+				}
+				
+			}
+		var filterBtn={
+				
+				"icon":"../../images/menubar/fifter.png",
+				"selectIcon":"../../images/menubar/fifter_select.png",
+				"text":"Filter",
+				"flyoutId":"filterFlyout",
+				"selectedEvent":function(){
+					alert("filter select");
+				},
+				"unSelectedEvent":function(){
+					alert("filter unselect");
+				}
+			
+			}
+		var jumpBtn={
+				
+				"icon":"../../images/menubar/jump_to.png",
+				"selectIcon":"../../images/menubar/jump_to_select.png",
+				"text":"JumpTo",
+				"flyoutId":"jumpToFlyout",
+				"selectedEvent":function(){
+					alert("jump select");
+				},
+				"unSelectedEvent":function(){
+					alert("jump unselect");
+				}
+				
+			}
+			var buttonJson=[infoBtn,filterBtn,jumpBtn];
+			
+			var mb=new MenuBar(document.body);
+			mb.forceLayout();
+			mb.appendMenuButtonWithJSON(buttonJson);
+		</script>
+	</body>
+</html>
+
+	

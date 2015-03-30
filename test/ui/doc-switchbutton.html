@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>EJS UI - Switch Button</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script src="../../core/ejs.core.js"></script>
+		<script src="../../core/ejs.promise.js"></script>
+		<script src="../../ui/js/eui.core.js"></script>
+		<script src="../../ui/js/eui.group.js"></script>
+		<script src="../../ui/js/eui.switchbutton.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="../css/default.css"/>
+		<link rel="stylesheet" type="text/css" href="../../ui/css/eui.group.css"/>
+		<link rel="stylesheet" type="text/css" href="../../ui/css/eui.switchbutton.css"/>
+		
+		<script src="../../ui/js/eui.button.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../ui/css/eui.button.css"/>
+		
+		<style>
+			
+
+
+
+			
+		</style>
+		
+		
+		<script>
+			(function(){
+				var menu=null;
+			
+				var loadTimer=setInterval(function(){
+					var docState=document.readyState;
+					if(docState=="load" || docState=="complete"){
+						document.addEventListener("touchmove",function(e){e.preventDefault();},false);
+						clearInterval(loadTimer);
+						ready();
+					}
+				},1);
+				
+				function ready(){
+					backBtn();
+					switchDemo();
+				}
+				var backBtn = function(){
+					var backBtnHost = document.getElementById("header");
+					var Button=require("EJS.UI.Button");
+					var backBtn=new Button(backBtnHost,{
+						inline:true,
+						text:"Back",
+						doClick:function(){
+							window.location="../index.html";
+						}
+					});
+					backBtn.forceLayout();
+				}	
+				var switchDemo=function(){
+					var switchBtn=document.getElementById("switch");
+					var log=document.getElementById("log");
+					
+					var SwitchButton=require("EJS.UI.SwitchButton");
+					var switchBtn=new SwitchButton(switchBtn,{on:"on",off:"off"});
+					switchBtn.forceLayout();
+					var i=0;
+					switchBtn.doChange=function(){
+						log.innerHTML=this.checked;
+					}
+					switchBtn.checked=true;
+				}
+				
+			})()
+		
+		</script>
+		
+	</head>
+
+	<body>
+		<div id="header" class="ui-header">
+			<div id="headertitle" class="headertitle">EJS UI</div>
+		</div>
+		
+		<div class="content">
+			
+			<div class="c-container">
+				<h2>EJS UI - Switch Button</h2>
+							
+				<p>以下是 Switch Button 的用法说明和实例：</p> 
+				<h2>Demo</h2>
+				<div id="switch" style="width:80px;"></div>
+				<br/>
+				State: <span id="log" style="width:50px;height:20px;"></span>
+				
+				<br/>
+				
+				<h2>添加</h2> 
+								
+				<h3>1.引入JS和Css文件</h3>
+					<code>
+						&lt;script src='ejs.core.js'&gt;&lt;/script&gt;<br/>
+						&lt;script src='ejs.promise.js'&gt;&lt;/script&gt;<br/>
+						&lt;script src='ui/eui.core.js'&gt;&lt;/script&gt;<br/>
+						&lt;script src='ui/eui.switchbutton.js'&gt;&lt;/script&gt;<br/>
+						&lt;link rel='stylesheet' type='text/css' href='css/eui.switchbutton.css'/&gt;
+					</code>
+					
+				<h3>2.require</h3>
+				<p>
+					//引用<br/>
+					<code>var SwitchButton=require("EJS.UI.SwitchButton");</code><br/>
+					//初始化构造控件（hostElement为div节点）<br/>
+					<code>var switchBtn=new SwitchButton(hostElement);</code><br/>
+					//显示<br/>
+					<code>switchBtn.forceLayout();</code><br/>
+				</p>
+				
+				<br/>
+				<br/>
+				
+				<h2>属性和方法</h2>
+				<h3>1.doChange方法</h3>
+				<code>switchBtn.doChange=function(){ alert(this.checked); }</code><br/>
+				<p>doChange方法能够为switch Button添加事件，当改变状态时能够触发。</p>
+				
+				<h3>2.checked属性</h3>
+				<code>switchBtn.checked</code>//得到当前状态<br/>
+				<code>switchBtn.checked=true</code>//设置Switch Button状态为选择状态<br/>
+				<p>checked属性可以得到Switch Button的当前状态；也可以设置Switch Button的状态。</p>
+				
+				<br/>
+				<br/>
+				
+				
+				<br/>
+			</div>
+			
+			
+		</div>
+	</body>
+</html>
+
+	

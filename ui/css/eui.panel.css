@@ -1,0 +1,109 @@
+﻿/****************
+	position
+****************/
+  .ui-panel{
+		-webkit-user-select: none;
+		width:100%;
+		height:100%;
+   }
+
+  .ui-panel .paneltitle{
+		position:relative;
+		width:100%;
+		height:45px;
+		line-height:45px;
+   }
+
+   .ui-panel .panelbody{
+		box-sizing:border-box;
+		//height:540px;
+		padding-left:20px;
+		padding-right:20px;
+        /*-webkit-overflow:auto !important;
+        -webkit-overflow-scrolling:touch !important ;
+   		overflow-y:scroll;*/
+		overflow:hidden;
+   }
+
+   .ui-panel .titlebutton{
+		position:relative;
+		height:30px;
+		line-height:30px;
+    }
+
+   .ui-panel .left{
+		float:left;
+		margin-left:10px;
+   }
+   .ui-panel .right{
+		float:right;
+		margin-right:10px;
+   }
+   .ui-panel .titlename{
+		width:100%;
+		position:absolute;
+		height:45px;
+		line-height:45px;	
+		z-index:11;
+   }
+   
+/****************
+	  Theme
+****************/
+     /* ui-panel theme */
+	.p-the{
+		font-family: Helvetica;
+		border:1px solid #6A6A6A;
+		border-radius:5px;
+		-webkit-border-radius:5px;
+		background:#EAEAEA;
+	}
+     /* panelTitle theme */
+    .ui-panel .pt-the{
+		white-space:nowrap; 
+		text-overflow:ellipsis;
+		overflow:hidden;
+		
+		border-top-left-radius:2px;
+		border-top-right-radius:2px;
+		-webkit-border-top-left-radius:3px;
+		-webkit-border-top-right-radius:3px;
+		border-bottom:1px solid #000;
+		
+		background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#484848),color-stop(0.5, #353535), color-stop(1, #535353));
+		background: -moz-linear-gradient(top,#484848,#353535,#535353);
+		background: -o-linear-gradient(top,#484848,#353535,#535353);	
+    }
+	 /* panelbutton theme */
+	.ui-panel .tb-the{
+		border:1px solid #181818;
+		color:#FFFFFF;
+		font-size:12px;
+		text-align:center;	
+		border-radius:5px;
+		-webkit-border-radius:5px;
+		
+		background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#424242), color-stop(1, #181818));
+		background: -moz-linear-gradient(top,#424242,#181818);
+		background: -o-linear-gradient(top,#424242,#181818);
+		box-shadow:0 1px 0 0 #777;
+
+		margin-top:8px;
+		
+		padding-left:15px;
+		padding-right:15px;
+		cursor: pointer;
+		z-index:99999;
+	}
+	 
+   .ui-panel .titlebutton:active{
+		background:-webkit-gradient(linear,left top,left bottom,color-stop(0,#2e2e2e), color-stop(1, #222222));
+		background: -moz-linear-gradient(top,#2e2e2e,#222222);
+		background: linear-gradient(top,#2e2e2e,#222222);
+    }
+     /* titlename theme */
+   .ui-panel .tn-the{
+		text-align:center;
+		font-size:20px;
+		color:#FFFFFF;
+    }

@@ -1,0 +1,64 @@
+﻿<html>
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script src="../../core/ejs.core.js"></script>
+		<script src="../../core/ejs.promise.js"></script>
+		<script src="../js/eui.core.js"></script>
+		<script src="../js/eui.panel.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/eui.panel.css"/>
+		<style>
+			#d1{
+				width:90px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="d1" style="height:400px;width:300px"></div>
+		<br/>
+		<br/>
+		<div id="d3" style="background:greenyellow;width:300px;">
+			<div>Result:</div>
+			<div>----------</div>
+		</div>
+		<script>
+			var d1=document.getElementById("d1");
+			var d2=document.getElementById("d2");
+			var d3=document.getElementById("d3");
+			
+			var Panel=require("EJS.UI.Panel");
+			var sb=new Panel(d1);
+			sb.forceLayout();
+			
+			var backBtn={
+				id:"cancel",
+				position:"right",
+				name:"cancel",
+				event:function(e){
+					sb.setButton([settingBtn]);
+					sb.title="Panel";
+				}
+			};
+			var saveBtn={
+				id:"save",
+				position:"left",
+				name:"save",
+				event:function(e){
+					sb.setButton([settingBtn]);
+					sb.title="Panel";
+				}
+			};
+			var settingBtn={
+				id:"setting",
+				position:"left",
+				name:"setting",
+				event:function(e){
+					sb.setButton([backBtn,saveBtn]);
+					sb.title="Settings";
+				}
+			};
+			sb.setButton([saveBtn,backBtn])
+			//sb.setButton([{id:"dd",position:"left",name:"save"}])
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+﻿<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script src="../../core/ejs.core.js"></script>
+		<script src="../../core/ejs.promise.js"></script>
+		<script src="../js/eui.core.js"></script>
+		<script src="../js/eui.slider.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/eui.slider.css"/>
+		<style>
+			body{
+				margin:60px;
+				padding:0;
+			}
+			
+			
+		</style>
+	</head>
+	
+	<body>
+		<!--div class="ui-slider">
+			<div class="progress" style="width: 100%; "></div>
+			<div class="sliderBtn" style="left: 100%; ">
+				<span class="tip">31</span>
+			</div>
+		</div-->
+		
+		<script>
+			var Sli=require("EJS.UI.Slider");
+			var sli=new Sli();
+			document.body.appendChild(sli.element);
+			sli.value=50;
+			sli.disabled(false);
+		</script>
+	</body>
+</html>

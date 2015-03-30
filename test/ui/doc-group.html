@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>EJS UI - Group</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script src="../../core/ejs.core.js"></script>
+		<script src="../../core/ejs.promise.js"></script>
+		<script src="../../ui/js/eui.core.js"></script>
+		<script src="../../ui/js/eui.group.js"></script>
+		<script src="../../ui/js/eui.switchbutton.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="../css/default.css"/>
+		<link rel="stylesheet" type="text/css" href="../../ui/css/eui.group.css"/>
+		<link rel="stylesheet" type="text/css" href="../../ui/css/eui.switchbutton.css"/>
+		
+		<script src="../../ui/js/eui.button.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../ui/css/eui.button.css"/>
+		
+		<style>
+			#d1{
+				width:90px;
+			}
+			.h{
+				float:left;
+				margin-left:20px;
+			}
+			.v{
+				margin-top:20px;
+			}
+		</style>
+		
+		<script>
+			(function(){
+				var menu=null;
+			
+				var loadTimer=setInterval(function(){
+					var docState=document.readyState;
+					if(docState=="load" || docState=="complete"){
+						document.addEventListener("touchmove",function(e){e.preventDefault();},false);
+						clearInterval(loadTimer);
+						ready();
+					}
+				},1);
+				
+				function ready(){
+					backBtn();
+					groupDemo();
+				}
+				
+				var backBtn = function(){
+					var backBtnHost = document.getElementById("header");
+					var Button=require("EJS.UI.Button");
+					var backBtn=new Button(backBtnHost,{
+						inline:true,
+						text:"Back",
+						doClick:function(){
+							window.location="../index.html";
+						}
+					});
+					backBtn.forceLayout();
+				}
+				var groupDemo=function(){
+					var d1=document.getElementById("d1");
+					var d2=document.getElementById("d2");
+					
+					window.groups=
+					[
+						{
+							"header":{title:"3"},
+							"items":[
+								{"itemtitle":"Starred","icon":"../../../images/filter/fifter_starred.png"},
+								{"itemtitle":"My Activities","icon":"../../../images/filter/fifter_my_activities.png"}
+								]
+						},
+						{
+							"header":{title:"1"},
+							"items":[
+								{"itemtitle":"Closed Activites","icon":"../../../images/filter/fifter_closed.png"}
+								,{"itemtitle":"Open Activities","icon":"../../../images/filter/fifter_open.png"}
+								]
+						},
+						{
+							"header":{title:"2"},
+							"items":[
+								{"itemtitle":"Phone","icon":"../../../images/filter/fifter_phone.png"},
+								{"itemtitle":"Email","icon":"../../../images/filter/fifter_email.png"},
+								{"itemtitle":"Service Activity","icon":"../../../images/filter/fifter_service.png"},
+								{"itemtitle":"Task","icon":"../../../images/filter/fifter_task.png"},
+								{"itemtitle":"Appointment","icon":"../../../images/filter/fifter_appointment.png"},
+								{"itemtitle":"Others","icon":"../../../images/filter/fifter_others.png"}
+								]
+						},
+					];
+					window.groups2=
+					[
+						
+						{
+							"header":{title:"AvePoint"},
+							"items":[
+								{"itemtitle":"Margration","icon":"../../../images/filter/fifter_closed.png"}
+								,{"itemtitle":"Control Panel","icon":"../../../images/filter/fifter_open.png"}
+								]
+						},
+						{
+							"header":{title:"Dynameics"},
+							"items":[
+								{"itemtitle":"Timeline","icon":"../../../images/filter/fifter_starred.png"},
+								{"itemtitle":"Pipline","icon":"../../../images/filter/fifter_my_activities.png"}
+								]
+						},
+						{
+							"header":{title:"Roles"},
+							"items":[
+								{"itemtitle":"Sales","icon":"../../../images/filter/fifter_roles_sales.png"},
+								{"itemtitle":"Service","icon":"../../../images/filter/fifter_roles_service.png"},
+								{"itemtitle":"Marketing Activity","icon":"../../../images/filter/fifter_roles_marketing.png"},
+								]
+						}
+					];
+					
+					var pos=document.getElementById("pos");
+					var Group=require("EJS.UI.Group");
+					var sb=null;
+					
+					window.options={
+							noHeader:false,
+							dataSource:groups,
+							groupHeaderTemplateId:"headerTemplateId",
+							itemTemplateId:"ItemTemplateId",
+							position:"h"
+						}
+						
+					window.useDefaultTemplate=function(){
+						dispose();
+						newControl({dataSource:groups});
+					}
+					window.newControl=function(opt){
+						sb=new Group(d1,opt);
+						sb.forceLayout();
+						sb.addEvent("itemClick",function(e){
+							alert(e);
+						});
+					}
+					window.dispose=function(){
+						sb.dispose();
+					}
+					window.changeSource=function(){
+						sb.noHeader=true;
+						sb.dataSource=groups2;
+					}
+					window.sortBy=function(){
+						if(sb){
+							sb.sort=function(a,b){
+								return a.header.title-b.header.title;
+							}
+							sb.dataSource=groups;
+						}
+					}
+					
+					
+					
+					window.changePos=function(v){
+						if(sb){
+							sb.groupClass=v
+							sb.reInit();
+						}
+					}
+				}
+				
+			})()
+		
+		</script>
+		
+	</head>
+
+	<body>
+		<div id="header" class="ui-header">
+			<div id="headertitle" class="headertitle">EJS UI</div>
+		</div>
+		
+		<div class="content">
+			<div id="menu" class="c-menu"></div>
+			
+			<div class="c-container">
+				<h2>EJS UI - Group</h2>
+							
+				<p>以下是 Group 的用法说明和实例：</p> 
+				
+				<h2>Demo</h2>
+				<div>
+					<div id="d1" style="width:100%"></div>
+					<br/>
+					<br/>
+					<div id="headerTemplateId" class="ui-template" style="background:red" data-bind="innerHTML:title"></div>
+					<div id="ItemTemplateId" event-bind="itemClick:click" class="ui-template" style="background:#ddd;height:40px;">
+						<span  data-bind="innerHTML:itemtitle"></span>
+						<img style="width:24px;height:24px"  data-bind="src:icon"></img>
+					</div>
+					
+					<input type="button" value="Use Customer template New Control" onclick="newControl(options)"/>
+					<input type="button" value="Change Data Source" onclick="changeSource()"/>
+					<input type="button" value="Use default Template" onclick="useDefaultTemplate()"/>
+					<input type="button" value="Sort by" onclick="sortBy()"/>
+					<select id="pos" onchange="changePos(this.value)">
+						<option value="">none</option>
+						<option value="h">h group theme</option>
+						<option value="v">v group theme</option>
+					</select>
+					<input type="button" value="Dispose" onclick="dispose()"/>
+				</div>	
+				<br/>
+				<br/>
+			</div>
+			
+			
+		</div>
+	</body>
+</html>
+
+	

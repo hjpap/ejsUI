@@ -1,0 +1,180 @@
+﻿.ui-slider-switch{
+	position: relative;
+
+	overflow: hidden;
+	display: inline-block;
+	height: 32px;
+	width: 5.8em;
+	margin: .5em 0;
+	top: 0;
+	
+	
+	-webkit-border-radius: 1em /*{global-radii-buttons}*/;
+	border-radius: 1em /*{global-radii-buttons}*/;
+	
+	-webkit-user-select:none;
+}
+
+.ui-switch-bg{
+border: 1px solid #BBB /*{c-bdown-border}*/;
+background: #D6D6D6 /*{c-bdown-background-color}*/;
+font-weight: bold;
+color: #222 /*{c-bdown-color}*/;
+text-shadow: 0 /*{c-bdown-shadow-x}*/ 1px /*{c-bdown-shadow-y}*/ 0 /*{c-bdown-shadow-radius}*/ white /*{c-bdown-shadow-color}*/;
+background-image: -webkit-gradient(linear, left top, left bottom, from( #D0D0D0 /*{c-bdown-background-start}*/), to( #DFDFDF /*{c-bdown-background-end}*/));
+background-image: -webkit-linear-gradient( #D0D0D0 /*{c-bdown-background-start}*/, #DFDFDF /*{c-bdown-background-end}*/);
+background-image: -moz-linear-gradient( #D0D0D0 /*{c-bdown-background-start}*/, #DFDFDF /*{c-bdown-background-end}*/);
+background-image: -ms-linear-gradient( #D0D0D0 /*{c-bdown-background-start}*/, #DFDFDF /*{c-bdown-background-end}*/);
+background-image: -o-linear-gradient( #D0D0D0 /*{c-bdown-background-start}*/, #DFDFDF /*{c-bdown-background-end}*/);
+background-image: linear-gradient( #D0D0D0 /*{c-bdown-background-start}*/, #DFDFDF /*{c-bdown-background-end}*/);
+
+}
+
+.ui-slider-switch .ui-slider-label {
+position: absolute;
+text-align: center;
+width: 100%;
+overflow: hidden;
+font-size: 16px;
+top: 0;
+line-height: 2;
+min-height: 100%;
+border-width: 0;
+white-space: nowrap;
+cursor: pointer;
+
+-webkit-background-clip: padding;
+background-clip: padding-box;
+-webkit-border-radius: 1em /*{global-radii-buttons}*/;
+border-radius: 1em /*{global-radii-buttons}*/;
+
+}
+
+.ui-slider-switch .ui-slider-label-a {
+z-index: 1;
+left: 0;
+text-indent: -1.5em;
+}
+.ui-slider-switch .ui-slider-label-b {
+z-index: 0;
+right: 0;
+text-indent: 1.5em;
+}
+
+.ui-slider-switch .ui-btn-active {
+border: 0px solid #2373A5 /*{global-active-border}*/;
+background: #5393C5 /*{global-active-background-color}*/;
+font-weight: bold;
+color: white /*{global-active-color}*/;
+cursor: pointer;
+text-shadow: 0 /*{global-active-shadow-x}*/ 1px /*{global-active-shadow-y}*/ 0 /*{global-active-shadow-radius}*/ #3373A5 /*{global-active-shadow-color}*/;
+text-decoration: none;
+background-image: -webkit-gradient(linear, left top, left bottom, from( #5393C5 /*{global-active-background-start}*/), to( #6FACD5 /*{global-active-background-end}*/));
+background-image: -webkit-linear-gradient( #5393C5 /*{global-active-background-start}*/, #6FACD5 /*{global-active-background-end}*/);
+background-image: -moz-linear-gradient( #5393C5 /*{global-active-background-start}*/, #6FACD5 /*{global-active-background-end}*/);
+background-image: -ms-linear-gradient( #5393C5 /*{global-active-background-start}*/, #6FACD5 /*{global-active-background-end}*/);
+background-image: -o-linear-gradient( #5393C5 /*{global-active-background-start}*/, #6FACD5 /*{global-active-background-end}*/);
+background-image: linear-gradient( #5393C5 /*{global-active-background-start}*/, #6FACD5 /*{global-active-background-end}*/);
+font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+}
+
+.ui-slider-switch .ui-btn-down-c {
+	font-weight: bold;
+	color: 					#222 /*{c-bdown-color}*/;
+	text-shadow: 0 /*{c-bdown-shadow-x}*/ 1px /*{c-bdown-shadow-y}*/ 0 /*{c-bdown-shadow-radius}*/ #fff /*{c-bdown-shadow-color}*/;
+	font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
+	text-decoration: none;
+}
+
+.ui-slider-switch .ui-slider-inneroffset {
+margin: 0 16px;
+position: relative;
+z-index: 1;
+//background:red;
+//height:10px;
+}
+
+.ui-slider-switch .ui-slider-handle {
+position: absolute;
+z-index: 1;
+top: 16px;
+width: 28px;
+height: 28px;
+margin: -15px 0 0 -15px;
+outline: 0;
+
+-webkit-border-radius: 1em /*{global-radii-buttons}*/;
+border-radius: 1em /*{global-radii-buttons}*/;
+
+-webkit-background-clip: padding;
+background-clip: padding-box;
+
+-webkit-box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 
+rgba(0, 0, 0, .2) /*{global-box-shadow-color}*/;
+box-shadow: 0 1px 3px /*{global-box-shadow-size}*/ 
+rgba(0, 0, 0, .2) /*{global-box-shadow-color}*/;
+
+
+}
+
+.ui-btn-up-a-black {
+border: 1px solid 
+#111 /*{a-bup-border}*/;
+background: 
+#333 /*{a-bup-background-color}*/;
+font-weight: bold;
+color: 
+white /*{a-bup-color}*/;
+text-shadow: 0 /*{a-bup-shadow-x}*/ 1px /*{a-bup-shadow-y}*/ 0 /*{a-bup-shadow-radius}*/ 
+#111 /*{a-bup-shadow-color}*/;
+background-image: -webkit-gradient(linear, left top, left bottom, from( 
+#444 /*{a-bup-background-start}*/), to( 
+#2D2D2D /*{a-bup-background-end}*/));
+background-image: -webkit-linear-gradient( 
+#444 /*{a-bup-background-start}*/, 
+#2D2D2D /*{a-bup-background-end}*/);
+background-image: -moz-linear-gradient( 
+#444 /*{a-bup-background-start}*/, 
+#2D2D2D /*{a-bup-background-end}*/);
+background-image: -ms-linear-gradient( 
+#444 /*{a-bup-background-start}*/, 
+#2D2D2D /*{a-bup-background-end}*/);
+background-image: -o-linear-gradient( 
+#444 /*{a-bup-background-start}*/, 
+#2D2D2D /*{a-bup-background-end}*/);
+background-image: linear-gradient( 
+#444 /*{a-bup-background-start}*/, 
+#2D2D2D /*{a-bup-background-end}*/);
+
+}
+.ui-btn-up-a-default{
+
+	border: 1px solid 
+#CCC /*{c-bup-border}*/;
+background: 
+#EEE /*{c-bup-background-color}*/;
+font-weight: bold;
+color: 
+#222 /*{c-bup-color}*/;
+text-shadow: 0 /*{c-bup-shadow-x}*/ 1px /*{c-bup-shadow-y}*/ 0 /*{c-bup-shadow-radius}*/ 
+white /*{c-bup-shadow-color}*/;
+background-image: -webkit-gradient(linear, left top, left bottom, from( 
+white /*{c-bup-background-start}*/), to( 
+#F1F1F1 /*{c-bup-background-end}*/));
+background-image: -webkit-linear-gradient( 
+white /*{c-bup-background-start}*/, 
+#F1F1F1 /*{c-bup-background-end}*/);
+background-image: -moz-linear-gradient( 
+white /*{c-bup-background-start}*/, 
+#F1F1F1 /*{c-bup-background-end}*/);
+background-image: -ms-linear-gradient( 
+white /*{c-bup-background-start}*/, 
+#F1F1F1 /*{c-bup-background-end}*/);
+background-image: -o-linear-gradient( 
+white /*{c-bup-background-start}*/, 
+#F1F1F1 /*{c-bup-background-end}*/);
+background-image: linear-gradient( 
+white /*{c-bup-background-start}*/, 
+#F1F1F1 /*{c-bup-background-end}*/);
+
+}

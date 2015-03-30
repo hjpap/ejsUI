@@ -1,0 +1,62 @@
+﻿/*
+Position css.
+*/
+		.ui-switchButton{
+			position: relative;
+			font-family: Helvetica;
+			-webkit-user-select: none;
+		}
+		
+		.ui-switchButton .slider{
+			position:absolute;
+			width:26px;
+			height:26px;
+			left:0;	
+		}
+		.ui-switchButton .switchBg{
+			position: relative;
+			//width: 90px;
+			height: 28px;
+			line-height:28px;
+		}
+		.ui-switchButton  .on .fontSpan{
+			position:absolute;
+			left:20%;
+			top:1px;
+		}
+		.ui-switchButton  .off .fontSpan{
+			position:absolute;
+			right:20%;
+			top:1px;
+		}
+		
+	
+/*
+Colors css.
+*/
+		.ui-switchButton .sliderTheme{
+			border-radius:13px;
+			-webkit-border-radius:13px;
+			background:-webkit-gradient(linear, 0 0, 0 100%, from(#DADADA), to(#FFFFFF));
+			border:1px solid #7E7E7E;
+			cursor:pointer;
+		}
+		.ui-switchButton .switchBgTheme{
+			font-weight:bold;
+			font-size:18px;
+			border-radius: 14px;
+			-webkit-border-radius:14px;
+			border:1px solid #8A8A8A;
+			cursor:pointer;
+		}
+		
+		.ui-switchButton .on{
+			background:-webkit-gradient(linear, 0 0, 0 100%, from(#662F98), to(#BE81E9));
+			color:#fff;
+		}
+		
+		.ui-switchButton .off{
+			background:-webkit-gradient(linear, 0 0, 0 100%, from(#BDBDBD), to(#FFFFFF));
+			color:#7F7F7F;
+		}
+		

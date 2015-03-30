@@ -1,0 +1,86 @@
+﻿<html>
+
+<head>
+
+<script src="../core/ejs.core.js"></script>
+
+
+
+</head>
+
+
+<body>
+
+
+</body>
+<script>
+	
+	EJS.Namespace.define("EJS.Util",{
+		getName:function(){return a},
+		age:{
+			set:function(){ this._age=1;},
+			get:function(){ return this._age;}
+		},
+		sex:"m",
+		MathHelp:EJS.Class.define(function(){},{
+			_name:"1",
+			age:{
+				set:function(){ this._age=1;},
+				get:function(){ return this._age;}
+			}
+		})
+	});
+	
+	var test=new EJS.Util.MathHelp();
+	var a=test._name;
+	
+	for(var item in test){
+		console.log(item);
+	}
+	
+	EJS.Namespace.define("EJS.Util",{
+		StringHelp:EJS.Class.define(function(){},{
+			_name:"1",
+			age:{
+				set:function(){ this._age=1;},
+				get:function(){ return this._age;}
+			}
+		})
+	});
+	
+	EJS.Class.defineUnderNamespace(
+		"EJS.UI",
+		"ListView",
+		function(){
+			this.name="test";
+			var ListLayout=require("EJS.UI.ListLayout");
+		},
+		{
+			_data:{},
+			dataSource:{
+				get:function(){ return this._data;}
+			}
+		},
+		{
+			counter:{
+				get:function(){ return 1;}
+			}
+		}
+	);
+	
+		EJS.Class.defineUnderNamespace(
+		"EJS.UI",
+		"ListLayout",
+		function(){
+			this.name="test"
+		},
+		null
+	);
+	
+	var ListView=require("EJS.UI.ListView");
+	var lv=new ListView();
+	
+	var read=true;
+</script>
+
+</html>

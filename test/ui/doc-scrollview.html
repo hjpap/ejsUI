@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>EJS UI - Scroll View</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="../../core/ejs.core.js"></script>
+		<script src="../../core/ejs.promise.js"></script>
+		<script src="../../ui/js/eui.core.js"></script>
+		<script src="../../ui/js/eui.group.js"></script>
+		<script src="../../ui/js/eui.scrollview.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="../css/default.css"/>
+		<link rel="stylesheet" type="text/css" href="../../ui/css/eui.group.css"/>
+		<link rel="stylesheet" type="text/css" href="../../ui/css/eui.scrollview.css"/>
+		
+		<script src="../../ui/js/eui.button.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../ui/css/eui.button.css"/>
+		
+		<style>
+			
+			#scrollView{
+				margin-top:50px;
+				width: 100%;
+				height: 300px;
+				background-color:#000;
+				
+			}
+			.item{
+				height:100px;
+				width:700px;
+				border:1px solid red;
+			}
+
+			.item2{
+				height: 100px;
+				width: 99px;
+				border-right: 1px solid red;
+				background-color: #000;
+				position:absolute;
+				top:0px;
+			}
+
+			#scrollView2{
+				margin-top:50px;
+				width:100%;
+				height:200px;
+				background-color:#aabbcc;
+			}
+
+		</style>
+		
+		
+		<script>
+			(function(){
+				var menu=null;
+			
+				var loadTimer=setInterval(function(){
+					var docState=document.readyState;
+					if(docState=="load" || docState=="complete"){
+						document.addEventListener("touchmove",function(e){e.preventDefault();},false);
+						clearInterval(loadTimer);
+						ready();
+					}
+				},1);
+				
+				function ready(){
+					backBtn();
+					scrollDemo();
+				}
+				
+				var backBtn = function(){
+					var backBtnHost = document.getElementById("header");
+					var Button=require("EJS.UI.Button");
+					var backBtn=new Button(backBtnHost,{
+						inline:true,
+						text:"Back",
+						doClick:function(){
+							window.location="../index.html";
+						}
+					});
+					backBtn.forceLayout();
+				}		
+				var scrollDemo=function(){
+					var ScrollView=require("EJS.UI.ScrollView");
+	
+					document.addEventListener("touchmove",function(e){e.preventDefault();});
+					
+					var hostElement=document.getElementById("scrollView");
+					var scrollView=new ScrollView(hostElement);
+					var domList=[];
+					for(var i=0;i<50;i++){
+						var dom=createDom();
+						domList.push(dom);
+					}
+					scrollView.forceLayout();
+					scrollView.addContent(domList);
+					
+					
+					var hostElement2=document.getElementById("scrollView2");
+					var scrollView2=new ScrollView(hostElement2);
+					var domList2=[];
+					for(var i=0;i<100;i++){
+						var dom=createDom2();
+						dom.style.left=i*101+"px";
+						domList2.push(dom);
+					}
+					scrollView2.forceLayout();
+					scrollView2.scrollContentWidth=10000;
+					scrollView2.addContent(domList2);
+					
+					function createDom(){
+						var dom=document.createElement('div');
+						dom.className="item";
+						return dom;
+					}
+					
+					function createDom2(){
+						var dom=document.createElement('div');
+						dom.className="item2";
+						return dom;
+					}
+				}
+				
+			})()
+		
+		</script>
+		
+	</head>
+
+	<body>
+		<div id="header" class="ui-header">
+			<div id="headertitle" class="headertitle">EJS UI</div>
+		</div>
+		
+		<div class="content">
+			<div id="menu" class="c-menu"></div>
+			
+			<div class="c-container">
+				<h2>EJS UI - Scroll View</h2>
+							
+				<p>以下是 Scroll View 的用法说明和实例：</p>
+				
+				<h2>Demo</h2>
+				<div id="scrollView"></div>
+		
+				<div id="scrollView2"></div>
+				
+				<br/>
+				<br/>
+			</div>
+			
+			
+		</div>
+	</body>
+</html>
+
+	

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Title</title>
+		<!--link href="css/html5reset.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" /-->
+		
+		<style>
+			body{
+				padding:0;
+				margin:0;
+			}
+			
+		.ui-btn{
+	display: block;
+	text-align: center;
+	cursor: pointer;
+	position: relative;
+	margin: .5em 0;
+	padding: 0;
+}
+.ui-btn-inner {
+	min-width: .75em;
+	display: block;
+	position: relative;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	zoom: 1;
+}
+
+.ui-btn-text {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+}
+
+.ui-btn-icon {
+	position: absolute;
+	top: 50%;
+	margin-top: -9px;
+	width: 18px;
+	height: 18px;
+	background:red;	
+}
+
+.ui-btn-icon-right .ui-btn-icon{
+	right: 10px;
+}
+.ui-btn-icon-left .ui-btn-icon{
+	left: 10px;
+}
+
+.isinline.ui-btn-icon-left .ui-btn-inner{
+	padding-left:40px;
+}
+.isinline.ui-btn-icon-right .ui-btn-inner{
+	padding-right:40px;
+}
+
+.ui-btn-shadow{
+		/* shadow */
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,.2);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+}
+.isinline{
+	display: inline-block;
+	vertical-align: middle;
+}
+/* default theme */
+.ui-btn-jqt{
+	font-family: Helvetica, Arial, sans-serif;
+	-webkit-border-radius: 1em;
+	border-radius: 1em;
+	
+	border: 1px solid #BBB;
+	background:white ;
+	font-weight: bold;
+	color:#333;
+	text-shadow: 0 1px 0 white ;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #FAFAFA), to( #F6F6F6 ));
+	background-image: -webkit-linear-gradient( #FAFAFA , #F6F6F6 );
+	background-image: -moz-linear-gradient( #FAFAFA , #F6F6F6 );
+	background-image: -ms-linear-gradient( #FAFAFA , #F6F6F6 );
+	background-image: -o-linear-gradient( #FAFAFA , #F6F6F6 );
+	background-image: linear-gradient( #FAFAFA , #F6F6F6 );
+}
+
+.ui-btn-jqt .ui-btn-inner {
+	font-size: 16px;
+	padding: 7px 20px;
+}
+
+
+
+/*  arrow button theme  */
+.ui-btn-arrowt{
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+.ui-btn-arrowt .ui-btn-inner{
+	padding-left:10px;
+	padding-right:10px;
+	font-size: 14px;
+	line-height:28px;
+	height:30px;
+	z-index:9;
+}
+.ui-btn-arrowt::after {
+	top: 3px;
+	position: absolute;
+	content: "";
+	display: block;
+	width: 23px;
+	height: 23px;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	transform: rotate(45deg);
+	z-index:8;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;	
+}
+	/*black*/
+.arr-black-t{
+	font-family: Helvetica, Arial, sans-serif;
+	color:white;
+	font-weight: bold;
+	border: 1px solid black;
+	background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#3D3D3D), color-stop(1,#1C1C1C));
+	background: -moz-linear-gradient(top,#3D3D3D,#1C1C1C);
+	background: -ms-linear-gradient( #3D3D3D, #1C1C1C);
+	background: linear-gradient(top,#3D3D3D,#1C1C1C);
+}
+.arr-black-t:after{
+	background: -webkit-gradient(linear,left top,right bottom,color-stop(0,#3D3D3D), color-stop(1, #1C1C1C));
+	background: -moz-linear-gradient(top left,#3D3D3D,#1C1C1C);
+	background: -ms-linear-gradient(top left, #3D3D3D, #1C1C1C);
+	background: linear-gradient(top left,#3D3D3D,#1C1C1C);
+}
+
+.arr-black-t-left{
+	margin-left:14px;
+}
+.arr-black-t-right{
+	margin-right:14px;
+}
+.arr-black-t-left:after{
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	left: -10px;
+}
+.arr-black-t-right:after{
+	right: -10px;
+	border-right: 1px solid black;
+	border-top: 1px solid black;
+}
+
+/* active */
+.ui-btn-active{
+	border: 1px solid #2373A5;
+	background: #5393C5 ;
+	font-weight: bold;
+	color:white ;
+	cursor: pointer;
+	text-shadow: 0  1px  0 #3373A5 ;
+	text-decoration: none;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#5393C5 ), to( #6FACD5 ));
+	background-image: -webkit-linear-gradient( #5393C5 ,#6FACD5);
+	background-image: -moz-linear-gradient( #5393C5 ,#6FACD5 );
+	background-image: -ms-linear-gradient(#5393C5 ,#6FACD5 );
+	background-image: -o-linear-gradient(#5393C5 , #6FACD5 );
+	background-image: linear-gradient(#5393C5 , #6FACD5 );
+}
+
+.ui-btn-active.ui-btn-arrowt::after{
+	background-image: -webkit-gradient(linear, left top, right bottom, from(#5393C5), to(#6FACD5));
+	//background-image: -webkit-linear-gradient(left top,#5393C5, #6FACD5);
+	background-image: -moz-linear-gradient(left top ,#5393C5, #6FACD5);
+	background-image: -ms-linear-gradient(left top, #5393C5, #6FACD5);
+	background-image: -o-linear-gradient(left top, #5393C5, #6FACD5);
+	background-image: linear-gradient(left top, #5393C5, #6FACD5);
+} 
+.ui-btn-active.arr-black-t-left:after{
+	border-left: 1px solid #2373A5 ;
+	border-bottom: 1px solid #2373A5 ;
+	left: -10px;
+}
+.ui-btn-active.arr-black-t-right:after{
+	right: -10px;
+	border-right: 1px solid #2373A5 ;
+	border-top: 1px solid #2373A5 ;
+}
+			/* IOS7.0 Theme */
+			
+			
+			
+			
+		</style>
+		
+	</head>
+
+	<body>
+		<h3> IOS7.0 theme </h3>
+		<a class="ui-btn">
+			<span class="ui-btn-inner">
+				<span class="ui-btn-text">短信</span>
+			</span>
+		</a>
+	
+		<h3> Black Arrow </h3>
+		
+		<a class="ui-btn  ui-btn-arrowt arr-black-t arr-black-t-left ui-btn-shadow">
+			<span class="ui-btn-inner">
+				<span class="ui-btn-text">短信</span>
+			</span>
+		</a>
+		
+		<h3> Black Arrow inline</h3>
+		
+		<a class="ui-btn  ui-btn-arrowt arr-black-t arr-black-t-left ui-btn-shadow isinline">
+			<span class="ui-btn-inner">
+				<span class="ui-btn-text">短信</span>
+			</span>
+		</a>
+		
+		<h3> Default </h3>
+		
+		<a class="ui-btn ui-btn-jqt ui-btn-shadow  ui-btn-icon-left ">
+			<span class="ui-btn-inner">
+				<span class="ui-btn-text">短信</span>
+				<span class="ui-btn-icon"></span>
+			</span>
+		</a>
+
+		<a class="ui-btn ui-btn-jqt ui-btn-shadow isinline ui-btn-icon-left">
+			<span class="ui-btn-inner">
+				<span class="ui-btn-text">短信</span>
+				<span class="ui-btn-icon"></span>
+			</span>
+		</a>
+		
+		<a class="ui-btn ui-btn-jqt ui-btn-shadow  ui-btn-icon-right">
+			<span class="ui-btn-inner">
+				<span class="ui-btn-text">BUTTON</span>
+				<span class="ui-btn-icon"></span>
+			</span>
+		</a>
+
+		<a class="ui-btn ui-btn-jqt ui-btn-shadow isinline ui-btn-icon-right">
+			<span class="ui-btn-inner">
+				<span class="ui-btn-text">短信</span>
+				<span class="ui-btn-icon"></span>
+			</span>
+		</a>
+		
+		<a class="ui-btn ui-btn-jqt ui-btn-shadow isinline">
+			<span class="ui-btn-inner">
+				<span class="ui-btn-text">短信</span>
+			</span>
+		</a>
+		
+		
+	</body>
+</html>
+
+	

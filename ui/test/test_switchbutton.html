@@ -1,0 +1,40 @@
+﻿<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script src="../../core/ejs.core.js"></script>
+		<script src="../../core/ejs.promise.js"></script>
+		<script src="../js/eui.core.js"></script>
+		<script src="../js/eui.switchbutton.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/eui.switchbutton.css"/>
+		<style>
+			#d1{
+				width:90px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="d1" style="height:20px;"></div>
+		<br/>
+		<br/>
+		<div id="d3" style="background:greenyellow;width:300px;">
+			<div>Result:</div>
+			<div>----------</div>
+		</div>
+		<script>
+			var d1=document.getElementById("d1");
+			var d2=document.getElementById("d2");
+			var d3=document.getElementById("d3");
+			
+			var SwitchButton=require("EJS.UI.SwitchButton");
+			var sb=new SwitchButton(d1,{on:"on",off:"off"});
+			sb.forceLayout();
+			var i=0;
+			sb.doChange=function(){
+				document.getElementById("d3").innerHTML+="<div>("+(++i)+") "+this.checked+"</div>";
+			}
+			sb.checked=true;
+			
+		</script>
+	</body>
+</html>

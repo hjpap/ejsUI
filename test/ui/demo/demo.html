@@ -1,0 +1,384 @@
+﻿<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script src="../../../core/ejs.core.js"></script>
+		<script src="../../../core/ejs.promise.js"></script>
+		<script src="../../../ui/js/eui.core.js"></script>
+		<script src="../../../ui/js/eui.sliderpage3page.js"></script>
+		<script src="../../../ui/js/eui.group.js"></script>
+		<script src="../../../ui/js/eui.scrollview.js"></script>
+		<script src="../../../ui/js/eui.button.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="../../../ui/css/eui.sliderpage3page.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../ui/css/eui.group.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../ui/css/eui.scrollview.css"/>
+		<link rel="stylesheet" type="text/css" href="../../../ui/css/eui.button.css"/>
+		<style>
+			@font-face {
+				font-family: 'entypo';
+				src:url('fonts/entypo.eot');
+				src:url('fonts/entypo.eot?#iefix') format('embedded-opentype'),
+					url('fonts/entypo.svg#entypo') format('svg'),
+					url('fonts/entypo.woff') format('woff'),
+					url('fonts/entypo.ttf') format('truetype');
+				font-weight: normal;
+				font-style: normal;
+			}
+			body{
+				margin:0;
+				padding:0;
+				font-family: Helvetica;
+			}
+			.ui-slider-container{
+				background:rgb(78,89,108);
+			}
+			.rightClass{
+				background:rgb(229,235,237);
+				-webkit-border-radius: 5px;
+				border-radius: 5px;
+			}
+			.leftClass{
+				
+				-webkit-border-top-left-radius: 5px;
+				border-top-left-radius: 5px;
+				-webkit-border-bottom-left-radius: 5px;
+				border-bottom-left-radius: 5px;
+			}
+			
+			.menu-content .ui-scrollview .scrollcontent {
+				width: 100%;
+			}
+			.left-menu{
+				width:100%;
+				height:100%;
+				background:rgb(42,51,68);
+				-webkit-border-radius: 5px;
+				border-radius: 5px;
+			}
+			.left-menu .search-box{
+				width:100%;
+				height:45px;
+				background:rgb(44,41,50);
+				-webkit-border-top-right-radius: 5px;
+				border-top-right-radius: 5px;
+				padding:0px 10px;
+			}
+			/* ---------------menu user info-------------- */
+			.left-menu .menu-user{
+				width:100%;
+				height:70px;
+				background: -webkit-linear-gradient( #364257 , #2A3141 );
+			}
+			.left-menu .menu-user img{
+				width:56px;
+				height:56px;
+				float:left;
+				margin-top:5px;
+				margin-left:20px;
+				-webkit-border-radius: 30px;
+				border-radius: 30px;
+				border:1px solid  rgb(66,74,94);
+			}
+			.left-menu .menu-user .name{
+				float:left;
+				line-height:70px;
+				margin-left:10px;
+				color:rgb(239,254,254);
+				font-size:20px;
+			}
+			/* ---------------menu user info-------------- */
+			
+			.left-menu .menu-g-header{
+				width:100%;
+				height:30px;
+				background:rgb(65,83,106);
+				border-top:1px solid rgb(66,74,94);
+				border-bottom:1px solid rgb(31,37,57);
+			}
+			.left-menu .menu-g-header span{
+				line-height:30px;
+				color:rgb(136,170,193);
+				margin-left:10px;
+			}
+			.left-menu .menu-g-item{
+				cursor:pointer;
+				height:35px;
+				background:rgb(42,51,68);
+				color:rgb(239,254,254);
+				border-top:1px solid rgb(66,74,94);
+				border-bottom:1px solid rgb(31,37,57);
+			}
+			.left-menu .menu-g-item:active{
+				background:rgba(0,0,0,0.4);
+			}
+			.left-menu .selected{
+				background:rgba(0,0,0,0.4);
+			}
+			.left-menu .menu-g-item .title{
+				line-height:35px;
+				margin-left:10px;
+				float:left;
+			}
+			.left-menu .menu-g-item img{
+				float:left;
+				width:28px;
+				height:28px;
+				margin-top:3px;
+				margin-left:10px;
+			}
+			
+			/* ---------------left page header-------------- */
+			.header-panel{
+				position:relative;
+				//z-index:99;
+				width:100%;
+				height:45px;
+				-webkit-border-top-right-radius: 5px;
+				border-top-right-radius: 5px;
+				background: -webkit-linear-gradient( rgb(187,115,98) , rgb(132,77,65) );
+				
+				-webkit-border-top-right-radius: 5px;
+				border-top-right-radius: 5px;
+				-webkit-border-top-left-radius: 5px;
+				border-top-left-radius: 5px;
+			}
+			.header-panel .title{
+				width:100%;
+				height:100%;
+				line-height:45px;
+				position:absolute;
+				z-index:0;
+				top:0;
+				left:0;
+				text-align:center;
+				color:white;
+				font-size:20px;
+				
+			}
+			.header-panel .ui-btn-menu{
+				float:left;
+				margin-left:10px;
+				margin-top:9px;
+			} 
+			.right-content{
+			
+			}
+			
+			.backBtn{
+				bottom:4px;
+			}
+			
+			.btn{
+				width:25px;
+				height:25px;
+				float:left;
+				position:relative;
+			}
+			.btn:before{
+				font-family: 'entypo';
+				font-style: normal;
+				speak: none;
+				font-weight: normal;
+				-webkit-font-smoothing: antialiased;
+				font-size: 20px;
+				width:25px;
+				height:25px;
+				position:absolute;
+				left:10px;
+				top:6px;
+			}
+			.icon1:before{
+				content: "\28";
+			}
+			.icon2:before{
+				content: "\23";
+			}
+			.icon3:before{
+				content: "\2a";
+			}
+			.title{
+				margin-left:20px;
+				float:left;
+			}
+			.name{
+				margin-left:20px;
+				float:left;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div id="leftMenu" class="left-menu">
+			<div id="search" class="search-box">
+			
+			</div>
+			<div id="menuContent" class="menu-content">
+				<div id="menuUserTemplate" class="menu-user ui-template">
+					<div data-bind="className:class"></div>
+					<div class="name" data-bind="innerHTML:username"></div>
+				</div>
+				<div id="menuGroupHeaderTemplate" class="menu-g-header ui-template">
+					<span data-bind="innerHTML:title"></span>
+				</div>
+				<div id="menuItemTemplate" class="menu-g-item ui-template">
+					<div data-bind="className:class"></div>
+					<div class="title" data-bind="innerHTML:itemtitle"></div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div id="mainPage1">
+			<div id="page1Header" class="header-panel">
+				<div class="title">Title</div>
+			</div>
+			<div class="right-content"></div>
+		</div>
+
+		<script>	
+			(function(){
+				var mainPage=null;
+				var menu=null;
+			    var menuScrollView=null;
+				var menuBtn=null;
+				
+				var menuOptions=null;
+				
+				var loadTimer=setInterval(function(){
+					var docState=document.readyState;
+					if(docState=="load" || docState=="complete"){
+						document.addEventListener("touchmove",function(e){e.preventDefault();},false);
+						clearInterval(loadTimer);
+						ready();
+					}
+				},1);
+				
+				function ready(){
+					initOptions();
+					initPage();
+					loadMenu(menuOptions);
+					setMenuEvent();
+					
+					loadMainPage1();
+					loadLeftPage();
+				}
+				
+				function initOptions(){
+					menuOptions=[
+						{
+							"header":{title:"Button",sortbyid:1},
+							"items":[
+								{"itemtitle":"Toggle Switch","btnId":"switch","css":"selected","class":"btn icon1"},
+								{"itemtitle":"Button","btnId":"button","class":"btn icon2"},
+							]
+						},
+						{
+							"header":{type:"user",sortbyid:0},
+							"items":[
+								{type:"user","username":"RicW.","btnId":"ww"},
+							]
+						},
+						{
+							"header":{title:"View",sortbyid:2},
+							"items":[
+								{"itemtitle":"Scroll View","class":"btn icon1","btnId":"scroll"},
+								{"itemtitle":"Group","btnId":"group","class":"btn icon2"},
+								{"itemtitle":"Panel","btnId":"panel","class":"btn icon3"},
+							]
+						},
+						
+					];
+				}
+				
+				/* init slider page */
+				function initPage(){
+					var SliderPage = require("EJS.UI.SliderPage");
+					mainPage=new SliderPage(document.body,{
+						leftClass:"leftClass",
+						mainClass:"rightClass shadow",
+						gap:40,
+						showLeftPage:true,
+						type:3,
+					});
+					mainPage.forceLayout();
+				}
+				/*  load menu */
+				var loadMenu=function(menuOptions){
+					var ScrollView=require("EJS.UI.ScrollView");
+					var scrollHost=document.getElementById("menuContent");
+					menuScrollView=new ScrollView(scrollHost);
+					menuScrollView.forceLayout();
+					//var menuhost=document.getElementById("menu");
+					var Group=require("EJS.UI.Group");
+					var gropOptions=menuOptions;
+					
+					var options={
+						dataSource:gropOptions,
+						groupHeaderTemplateId:"menuGroupHeaderTemplate",
+						itemTemplateId:"menuItemTemplate",
+						setItemTemplateId:function(data){
+							//设置组中与众不同特有的template,返回id
+							if(data.type=="user")
+								return "menuUserTemplate";
+						},
+						setHeaderTemplateId:function(data){
+							//设置组中与众不同特有的template,返回id
+							if(data.type=="user")
+								return "null";
+						},
+						sort:function(a,b){
+							return a.header.sortbyid-b.header.sortbyid;
+						}
+					}
+					menu=new Group(null,options);
+					//menu.forceLayout();
+					//mainPage.addToLeftPage(menu.element);
+					menuScrollView.addContent(menu.element);
+					
+					var leftMenu=document.getElementById("leftMenu");
+					var leftSearch = document.getElementById("search");
+					var Button=require("EJS.UI.Button");
+
+					backBtn=new Button(leftSearch,{
+						inline:true,
+						text:"Back",
+						className:"backBtn",
+						doClick:function(){window.location="../../index.html";}
+					});
+					backBtn.forceLayout();
+					mainPage.addToLeftPage(leftMenu);
+				}
+				//设置左边菜单的点击事件
+				var setMenuEvent=function(){
+					var itemClick=function(e){
+						var btnId=e.itemData.btnId;	
+					}
+					if(menu)
+						menu.addEvent("itemClick",itemClick);
+				}
+				
+				var loadMainPage1=function(){
+					var mainPage1=document.getElementById("mainPage1");
+					mainPage.addToMainPage(mainPage1);
+					//header添加按钮
+					var page1Header=document.getElementById("page1Header");
+					var Button=require("EJS.UI.Button");
+
+					menuBtn=new Button(null,{
+						inline:true,
+						text:"",
+						doEnd:function(){mainPage.showPage="left";},
+						theme:"ui-btn-menu",
+					});
+					page1Header.appendChild(menuBtn.element);
+					
+				}
+				var loadLeftPage=function(){
+					var doms=document.getElementById("leftMenu").cloneNode(true);
+					mainPage.addToRightPage(doms);
+				}
+				
+			})()
+		</script>
+	</body>
+</html>

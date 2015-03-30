@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>EJS UI - Menu Bar</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<script src="../../core/ejs.core.js"></script>
+		<script src="../../core/ejs.promise.js"></script>
+		<script src="../../ui/js/eui.core.js"></script>
+		<script src="../../ui/js/eui.group.js"></script>
+		
+		<link rel="stylesheet" type="text/css" href="../css/default.css"/>
+		<link rel="stylesheet" type="text/css" href="../../ui/css/eui.group.css"/>
+		
+		<script src="../../ui/js/eui.menubar.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../ui/css/eui.menubar.css"/>
+		
+		<script src="../../ui/js/eui.button.js"></script>
+		<link rel="stylesheet" type="text/css" href="../../ui/css/eui.button.css"/>
+		<style>
+			
+
+
+
+			
+		</style>
+		
+		
+		<script>
+			(function(){
+				var menu=null;
+			
+				var loadTimer=setInterval(function(){
+					var docState=document.readyState;
+					if(docState=="load" || docState=="complete"){
+						document.addEventListener("touchmove",function(e){e.preventDefault();},false);
+						clearInterval(loadTimer);
+						ready();
+					}
+				},1);
+				
+				function ready(){
+					backBtn();
+					menubarDemo();
+				}
+				var backBtn = function(){
+					var backBtnHost = document.getElementById("header");
+					var Button=require("EJS.UI.Button");
+					var backBtn=new Button(backBtnHost,{
+						inline:true,
+						text:"Back",
+						doClick:function(){
+							window.location="../index.html";
+						}
+					});
+					backBtn.forceLayout();
+				}		
+				var menubarDemo=function(){
+					var menuHost=document.getElementById("d1");
+					
+					var MenuBar=require("EJS.UI.MenuBar");
+					var infoBtn={
+						
+						"icon":"../../images/menubar/information.png",
+						"selectIcon":"../../images/menubar/information_select.png",
+						"text":"Information",
+						"flyoutId":"infoFlyout",
+						"selectedEvent":function(){
+							alert("infor select");
+						},
+						"unSelectedEvent":function(){
+							alert("info unselect");
+						}
+						
+					}
+					var filterBtn={
+							
+							"icon":"../../images/menubar/fifter.png",
+							"selectIcon":"../../images/menubar/fifter_select.png",
+							"text":"Filter",
+							"flyoutId":"filterFlyout",
+							"selectedEvent":function(){
+								alert("filter select");
+							},
+							"unSelectedEvent":function(){
+								alert("filter unselect");
+							}
+						
+						}
+					var jumpBtn={
+							
+							"icon":"../../images/menubar/jump_to.png",
+							"selectIcon":"../../images/menubar/jump_to_select.png",
+							"text":"JumpTo",
+							"flyoutId":"jumpToFlyout",
+							"selectedEvent":function(){
+								alert("jump select");
+							},
+							"unSelectedEvent":function(){
+								alert("jump unselect");
+							}
+							
+						}
+					var buttonJson=[infoBtn,filterBtn,jumpBtn];
+					
+					var mb=new MenuBar(menuHost);
+					mb.forceLayout();
+					mb.appendMenuButtonWithJSON(buttonJson);
+				}
+				
+			})()
+		
+		</script>
+		
+	</head>
+
+	<body>
+		<div id="header" class="ui-header">
+			<div id="headertitle" class="headertitle">EJS UI</div>
+		</div>
+		
+		<div class="content">
+			
+			<div class="c-container">
+				<h2>EJS UI - Menu Bar</h2>
+							
+				<p>以下是 Menu Bar 的用法说明和实例：</p> 
+				<h2>Demo</h2>
+				<div id="d1"></div>
+				
+			</div>
+			
+			
+		</div>
+	</body>
+</html>
+
+	
